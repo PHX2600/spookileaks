@@ -1,52 +1,48 @@
-<?php
-/**
- *
- *
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+    <title>
+        <?php echo strip_tags($page_title); ?> | Ghostr
+    </title>
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+    <?php echo $this->Html->meta('icon', $this->html->url('/img/favicon.ico')); ?>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/ghost.min.js"></script>
+
+    <!-- META -->
+    <?php echo $this->fetch('meta'); ?>
+    <?php echo $this->Html->charset(); ?>
+
 </head>
+
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+    <?php echo $this->element('site_header'); ?>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
+    <?php echo $this->fetch('content'); ?>
+
+    <div class="container">
+
+        <div class="site-footer">
+            &copy; <?php echo date('Y'); ?> PHX2600 &bull; Developed by
+            <a href="https://github.com/AltF4">AltF4</a> &amp;
+            <a href="https://github.com/PHLAK">PHLAK</a>
+        </div>
+
+    </div>
+
+    <div class="alert-wrapper container">
+        <?php echo $this->Session->flash('flash', array('element' => 'flash_custom')); ?>
+    </div>
+
 </body>
 </html>
