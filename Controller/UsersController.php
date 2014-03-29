@@ -1,6 +1,6 @@
 <?php
 
-    class UserController extends AppController {
+    class UsersController extends AppController {
 
         public function beforeFilter() {
 
@@ -13,7 +13,7 @@
         public function login() {
 
             // Set the page title
-            $this->set('page_title', 'Log In');
+            $this->set('page_title', 'My Ghost Stories');
 
         }
 
