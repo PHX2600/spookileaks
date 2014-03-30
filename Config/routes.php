@@ -21,6 +21,7 @@
     // Users
     Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
     Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+    Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
     // Stories
     Router::connect('/stories', array('controller' => 'stories', 'action' => 'stories'));
