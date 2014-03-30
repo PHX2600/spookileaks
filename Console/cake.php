@@ -20,11 +20,10 @@ $ds = DIRECTORY_SEPARATOR;
 $dispatcher = 'Cake' . $ds . 'Console' . $ds . 'ShellDispatcher.php';
 
 if (function_exists('ini_set')) {
-	$root = dirname(dirname(dirname(__FILE__)));
+	$root = dirname(dirname(__FILE__));
 
-	// the following line differs from its sibling
-	// /app/Console/cake.php
-	ini_set('include_path', $root . PATH_SEPARATOR .  $ds . 'home' . $ds . 'chris' . $ds . 'AeroFS' . $ds . 'workspace' . $ds . 'cc-ctf' . $ds . 'Vendor' . $ds . 'pear-pear.cakephp.org' . $ds . 'CakePHP' . PATH_SEPARATOR . ini_get('include_path'));
+	// the following line differs from its sibling /app/Console/cake.php
+	ini_set('include_path', $root . $ds . 'Vendor' . $ds . 'pear-pear.cakephp.org' . $ds . 'CakePHP' . PATH_SEPARATOR . ini_get('include_path'));
 }
 
 if (!include $dispatcher) {
