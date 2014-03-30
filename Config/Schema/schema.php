@@ -1,5 +1,5 @@
 <?php 
-class CcCtfSchema extends CakeSchema {
+class GhostSchema extends CakeSchema {
 
 	public function before($event = array()) {
 		return true;
