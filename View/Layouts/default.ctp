@@ -28,9 +28,11 @@
 
     <?php echo $this->element('site_header'); ?>
 
-    <?php echo $this->fetch('content'); ?>
-
     <div class="container">
+
+        <h1 class="page-title"><?php echo $page_title; ?></h1>
+
+        <?php echo $this->fetch('content'); ?>
 
         <div class="site-footer">
             &copy; <?php echo date('Y'); ?> PHX2600 &bull; Developed by

@@ -1,3 +1,12 @@
+.page-title {
+    border-bottom: 1px dotted #DDD;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 2px;
+}
+
+
+
 .site-footer {
     border-top: 1px solid #CCC;
     margin-top: 30px;

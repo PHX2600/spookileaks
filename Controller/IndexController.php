@@ -7,6 +7,9 @@
             // Call parent beforeFilter
             parent::beforeFilter();
 
+            // Set public views
+            $this->Auth->allow('index');
+
         }
 
 
