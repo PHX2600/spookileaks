@@ -13,9 +13,17 @@
 
         <div class="navbar-right">
 
-            <a href="/register" class="btn btn-link btn-sm navbar-btn">Register</a>
+            <?php if ($this->Session->read('Auth.User.id')): ?>
 
-            <a href="/login" class="btn btn-primary navbar-btn">Log In</a>
+                <a href="/logout" class="btn btn-primary navbar-btn"><?php echo $this->Session->read('Auth.User.username'); ?> (logout)</a>
+
+            <?php else: ?>
+
+                <a href="/register" class="btn btn-link btn-sm navbar-btn">Register</a>
+
+                <a href="/login" class="btn btn-primary navbar-btn">Log In</a>
+
+            <?php endif; ?>
 
         </div>
 

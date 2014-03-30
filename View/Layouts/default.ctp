@@ -16,7 +16,7 @@
     <!-- SCRIPTS -->
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/ghost.min.js"></script>
+    <script type="text/javascript" src="/js/ghost.js"></script>
 
     <!-- META -->
     <?php echo $this->fetch('meta'); ?>
@@ -32,6 +32,10 @@
 
         <h1 class="page-title"><?php echo $page_title; ?></h1>
 
+        <div class="alert-wrapper">
+            <?php echo $this->Session->flash('flash', array('element' => 'flash')); ?>
+        </div>
+
         <?php echo $this->fetch('content'); ?>
 
         <div class="site-footer">
@@ -40,10 +44,6 @@
             <a href="https://github.com/PHLAK">PHLAK</a>
         </div>
 
-    </div>
-
-    <div class="alert-wrapper container">
-        <?php echo $this->Session->flash('flash', array('element' => 'flash_custom')); ?>
     </div>
 
 </body>

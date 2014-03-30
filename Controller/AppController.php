@@ -25,6 +25,11 @@ class AppController extends Controller {
 
     public $components = array(
         'Auth' => array(
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Custom'
+                )
+            ),
             'loginRedirect' => array(
                 'controller' => 'index',
                 'action'     => 'index'

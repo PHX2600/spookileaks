@@ -14,7 +14,8 @@ class StoryTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.story',
-		'app.users'
+		'app.users',
+		'app.users1'
 	);
 
 /**

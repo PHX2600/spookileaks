@@ -4,6 +4,7 @@ App::uses('AppModel', 'Model');
  * Story Model
  *
  * @property Users $Users
+ * @property Users1 $Users1
  */
 class Story extends AppModel {
 
@@ -14,6 +15,16 @@ class Story extends AppModel {
  */
 	public $validate = array(
 		'users_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'users_id1' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -36,6 +47,13 @@ class Story extends AppModel {
 		'Users' => array(
 			'className' => 'Users',
 			'foreignKey' => 'users_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Users1' => array(
+			'className' => 'Users1',
+			'foreignKey' => 'users_id1',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
