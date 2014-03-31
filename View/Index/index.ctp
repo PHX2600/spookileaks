@@ -22,5 +22,3 @@
     </div>
 
 </div>
-
-<?php echo "<pre>". var_export($this->Session->read(), true) ."</pre>"; ?>
