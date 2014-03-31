@@ -9,9 +9,13 @@
                 <a href="/about">About Us</a>
             </li>
 
-            <li>
-                <a href="/stories">My Ghost Stories</a>
-            </li>
+            <?php if ($this->Session->read('Auth.User.id')): ?>
+
+                <li>
+                    <a href="/stories">My Ghost Stories</a>
+                </li>
+
+            <?php endif; ?>
 
         </ul>
 
@@ -19,11 +23,15 @@
 
             <?php if ($this->Session->read('Auth.User.id')): ?>
 
-                <a href="/logout" class="btn btn-primary navbar-btn"><?php echo $this->Session->read('Auth.User.username'); ?> (logout)</a>
+                <div class="navbar-text">
+                    Logged in as: <strong><?php echo $this->Session->read('Auth.User.username'); ?></strong>
+                </div>
+
+                <a href="/logout" class="btn btn-primary navbar-btn">Log Out</a>
 
             <?php else: ?>
 
-                <a href="/register" class="btn btn-link btn-sm navbar-btn">Register</a>
+                <a href="/register" class="btn btn-link navbar-btn">Register</a>
 
                 <a href="/login" class="btn btn-primary navbar-btn">Log In</a>
 
