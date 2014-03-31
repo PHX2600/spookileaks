@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /secret_docs/file-tree.txt
