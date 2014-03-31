@@ -24,7 +24,7 @@
                 } else {
 
                     // Set flash message
-                    $this->Session->setFlash('ZOINKS! Username or password is incorrect.', 'flash');
+                    $this->Session->setFlash('ZOINKS! Username or password is incorrect.');
 
                 }
 
@@ -37,6 +37,9 @@
 
 
         public function logout() {
+
+            // Set flash message
+            $this->Session->setFlash('You have been logged out');
 
             // Log user out
             return $this->redirect($this->Auth->logout());
@@ -69,7 +72,7 @@
                 if($this->User->save($this->request->data)) {
 
                     // Set flash message
-                    $this->Session->setFlash('The user has been saved');
+                    $this->Session->setFlash('User has been created');
 
                     // Redirect to index
                     return $this->redirect('/');
