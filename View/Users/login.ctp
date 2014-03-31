@@ -2,24 +2,41 @@
 
     <div class="col-md-6 col-md-offset-3">
 
-        <?php echo $this->Form->create('User', array('class' => 'well')); ?>
+        <?php echo $this->Form->create('User', array(
+            'class' => 'login-form panel panel-default'
+        )); ?>
 
-            <div class="form-group">
-                <?php echo $this->Form->input('username', array(
-                    'class' => 'login-username form-control'
-                )); ?>
-            </div>
+            <div class="panel-body">
 
-            <div class="form-group">
-                <?php echo $this->Form->input('password', array(
-                    'class' => 'login-password form-control'
-                )); ?>
-            </div>
+                <div class="form-group">
 
-            <div class="form-group text-right">
-                <?php echo $this->Form->submit('Login', array(
-                    'class' => 'login-submit btn btn-primary'
-                )); ?>
+                    <h5>Username</h5>
+
+                    <?php echo $this->Form->text('username', array(
+                        'class' => 'login-username form-control'
+                    )); ?>
+
+                </div>
+
+                <div class="form-group">
+
+                    <h5>Password</h5>
+
+                    <?php echo $this->Form->password('password', array(
+                        'class' => 'login-password form-control'
+                    )); ?>
+
+                </div>
+
+                <div class="panel-separator"></div>
+
+                <div class="form-group text-right">
+
+                    <?php echo $this->Form->submit('Login', array(
+                        'class' => 'login-submit btn btn-primary'
+                    )); ?>
+
+                </div>
 
             </div>
 
