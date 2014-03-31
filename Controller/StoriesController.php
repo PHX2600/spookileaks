@@ -63,8 +63,8 @@
 
                 // Set file path and user id
                 $this->Story->set(array(
-                    'user_id'   => $this->Auth->user('id'),
-                    'file' => $file['name']
+                    'user_id' => $this->Auth->user('id'),
+                    'file'    => $file['name']
                 ));
 
                 // print_r($this->Story); die(); // Debugging
@@ -94,6 +94,9 @@
 
             // Find all stories
             $stories = $this->Story->find('all', array(
+                'conditions' => array(
+                    'Story.user_id' => $this->Auth->user('id')
+                ),
                 'order' => 'Story.modified DESC'
             ));
 
