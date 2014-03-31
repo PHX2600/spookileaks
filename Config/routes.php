@@ -28,7 +28,7 @@
 
     // Stories
     Router::connect('/stories', array('controller' => 'stories', 'action' => 'stories'));
-	Router::connect('/stories/upload', array('controller' => 'stories', 'action' => 'upload'));
+	Router::connect('/stories/media', array('controller' => 'stories', 'action' => 'media'));
 
 
     /**

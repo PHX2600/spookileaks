@@ -47,7 +47,7 @@
                 // Set file path and user id
                 $this->Story->set(array(
                     'user_id'   => $this->Auth->user('id'),
-                    'file_path' => $filePath
+                    'file' => $file['name']
                 ));
 
                 // print_r($this->Story); die(); // Debugging
@@ -87,9 +87,48 @@
 
         }
 
-        public function upload() {
+        public function media() {
 
-            // ...
+            // print_r($this->request->query); die(); // Debugging
+
+            // Don't allow directory traversal
+            $fileName = str_replace('../', '', $this->request->query['file']);
+
+            // Get file path
+            $file = realpath(APP . 'uploads' . DS . $fileName);
+
+            // Send the file
+            if (file_exists($file)) {
+
+                // Get file mime type
+                $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                $contentType = finfo_file($finfo, $file);
+
+                // Set some header information
+                header('Content-Description: File Transfer');
+                header('Content-Type: ' . $contentType);
+                header('Content-Transfer-Encoding: binary');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($file));
+
+                // Discard contents of the output buffer
+                ob_clean();
+
+                // Flush write buffers
+                flush();
+
+                // Read file to the output buffer
+                readfile($file);
+
+                // Stop execution
+                exit;
+
+            }
+
+            // Return 404 on failure
+            throw new NotFoundException('File Not Found');
 
         }
 

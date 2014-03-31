@@ -14,7 +14,7 @@
                     </small>
                 </h3>
 
-                <img src="/story/media?file=<?php echo $story['Story']['file_path']; ?>">
+                <img src="/stories/media?file=<?php echo $story['Story']['file']; ?>" class="story-img img-responsive img-thumbnail">
 
                 <div class="story-text">
                     <?php echo nl2br($story['Story']['text']); ?>
