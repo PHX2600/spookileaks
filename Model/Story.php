@@ -1,11 +1,9 @@
 <?php
-
 App::uses('AppModel', 'Model');
-
 /**
  * Story Model
  *
- * @property Users $Users
+ * @property User $User
  */
 class Story extends AppModel {
 
@@ -15,7 +13,7 @@ class Story extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'users_id' => array(
+		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -35,9 +33,9 @@ class Story extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Users' => array(
-			'className' => 'Users',
-			'foreignKey' => 'users_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

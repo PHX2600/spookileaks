@@ -75,6 +75,16 @@
             // Set the page title
             $this->set('page_title', 'My Ghost Stories');
 
+            // Find all stories
+            $stories = $this->Story->find('all', array(
+                'order' => 'Story.modified DESC'
+            ));
+
+            // print_r($stories); die(); // Debugging
+
+            // Pass stories data to view
+            $this->set('stories', $stories);
+
         }
 
         public function upload() {

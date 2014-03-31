@@ -1,12 +1,32 @@
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-7">
 
-        <p>Stories will go here</p>
+        <?php foreach ($stories as $story): ?>
+
+            <div class="story-wrapper">
+
+                <h3 class="story-title">
+                    <?php echo $story['Story']['title']; ?><br>
+                    <small>
+                        By, <?php echo $story['User']['username']; ?>
+                        &bull; <?php echo $this->Time->format('M jS, Y - g:i A', $story['Story']['created']); ?>
+                    </small>
+                </h3>
+
+                <img src="/story/media?file=<?php echo $story['Story']['file_path']; ?>">
+
+                <div class="story-text">
+                    <?php echo $story['Story']['text']; ?>
+                </div>
+
+            </div>
+
+        <?php endforeach; ?>
 
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5">
 
         <?php echo $this->Form->create('Story', array('enctype' => 'multipart/form-data')); ?>
 
