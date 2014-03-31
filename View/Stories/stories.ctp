@@ -17,7 +17,7 @@
                 <img src="/story/media?file=<?php echo $story['Story']['file_path']; ?>">
 
                 <div class="story-text">
-                    <?php echo $story['Story']['text']; ?>
+                    <?php echo nl2br($story['Story']['text']); ?>
                 </div>
 
             </div>
