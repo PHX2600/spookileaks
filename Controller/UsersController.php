@@ -51,6 +51,16 @@
 
             if ($this->request->is('post')) {
 
+                if ($this->request->data['User']['password'] !== $this->request->data['User']['password_confirm']) {
+
+                    // Set flash message
+                    $this->Session->setFlash('Passwords do not match');
+
+                    // Redirect to index
+                    return $this->redirect('/register');
+
+                }
+
                 $this->User->create();
 
                 // Set user role to 'user'

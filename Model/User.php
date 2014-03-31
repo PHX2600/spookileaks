@@ -1,5 +1,8 @@
 <?php
+
 App::uses('AppModel', 'Model');
+App::uses('CustomPasswordHasher', 'Controller/Component/Auth');
+
 /**
  * User Model
  *
