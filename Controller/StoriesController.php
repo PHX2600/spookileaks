@@ -21,24 +21,41 @@
 
                 if (!$file['error']) {
 
-                    // TODO: Check file extension
+                    // Set array of allowed file extensions
+                    $allowedExtensions = array('bmp', 'gif', 'jpg', 'jpeg');
 
-                    // Set course media directory path
-                    $uploadDir = APP . 'uploads';
+                    // Get file extension from source image
+                    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
 
-                    // Check if course media dir is writeable
-                    if (is_writable($uploadDir)) {
+                    // Verify file is of an acceptable type
+                    if (in_array($extension, $allowedExtensions)) {
 
-                        // Set file path
-                        $filePath = $uploadDir . DS . $file['name'];
+                        // Set course media directory path
+                        $uploadDir = APP . 'uploads';
 
-                        // Move file into upload dir
-                        move_uploaded_file($file['tmp_name'], $filePath);
+                        // Check if course media dir is writeable
+                        if (is_writable($uploadDir)) {
+
+                            // Set file path
+                            $filePath = $uploadDir . DS . $file['name'];
+
+                            // Move file into upload dir
+                            move_uploaded_file($file['tmp_name'], $filePath);
+
+                        } else {
+
+                            // Throw 404 if not post request
+                            throw new InternalErrorException('Cannot write to uploads directory');
+
+                        }
 
                     } else {
 
-                        // Throw 404 if not post request
-                        throw new InternalErrorException('Cannot write to uploads directory');
+                        // Set flash message
+                        $this->Session->setFlash('Jinkies! There was an error posting your story.');
+
+                        // Redirect to index
+                        return $this->redirect('/stories');
 
                     }
 
