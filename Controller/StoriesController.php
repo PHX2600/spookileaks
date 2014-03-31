@@ -132,6 +132,7 @@
                 header('Cache-Control: must-revalidate');
                 header('Pragma: public');
                 header('Content-Length: ' . filesize($file));
+                header('Content-Disposition: inline; filename="' . $file . '"');
 
                 // Discard contents of the output buffer
                 ob_clean();
