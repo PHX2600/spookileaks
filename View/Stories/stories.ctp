@@ -55,6 +55,10 @@
 
                         <?php echo $this->Form->file('Story.file_upload'); ?>
 
+                        <small class="help-block">
+                            <strong>Allowed file types:</strong> bmp, gif, jpg, jpeg
+                        </small>
+
                     </div>
 
                     <div class="form-group">
