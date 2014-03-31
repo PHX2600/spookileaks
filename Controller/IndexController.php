@@ -16,7 +16,7 @@
         public function index() {
 
             // Set the page title
-            $this->set('page_title', 'Hello (ghost) world!');
+            $this->set('page_title', 'Home');
 
         }
 
@@ -24,7 +24,7 @@
         public function about() {
 
             // Set the page title
-            $this->set('page_title', 'About the Mystery Team');
+            $this->set('page_title', 'About SpookiLeaks');
 
         }
 

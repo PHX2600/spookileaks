@@ -3,7 +3,7 @@
 <head>
 
     <title>
-        <?php echo strip_tags($page_title); ?> | Ghostr
+        <?php echo strip_tags($page_title); ?> | SpookiLeaks
     </title>
 
     <?php echo $this->Html->meta('icon', $this->html->url('/img/favicon.ico')); ?>

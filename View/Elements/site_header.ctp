@@ -1,7 +1,7 @@
 <div id="page-header" class="navbar navbar-inverse navbar-static-top">
     <div class="container">
 
-        <a class="navbar-brand" href="/">Mystery Inc.</a>
+        <a class="navbar-brand" href="/">SpookiLeaks</a>
 
         <ul class="nav navbar-nav">
 

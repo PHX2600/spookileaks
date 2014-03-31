@@ -2,20 +2,19 @@
 
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-6">
 
-            <img src="/img/mystery_machine.jpg" class="img-rounded img-responsive">
+            <img src="/img/ghost.jpg" class="img-rounded img-responsive">
 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
 
-            <h2>Welcome to Myster Inc.</h2>
+            <h2>Welcome to SpookiLeaks</h2>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, veniam, iure
-            quidem eveniet officiis hic harum fugit saepe vero temporibus!</p>
+            <p>We help you get your ghost stories out there quickly and securly.</p>
 
-            <a href="/login" class="btn btn-success btn-block btn-lg">Join the Team!</a>
+            <a href="/login" class="btn btn-success btn-block btn-lg">Sign up now!</a>
 
         </div>
 
