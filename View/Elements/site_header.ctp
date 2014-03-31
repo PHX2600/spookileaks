@@ -6,6 +6,10 @@
         <ul class="nav navbar-nav">
 
             <li>
+                <a href="/about">About Us</a>
+            </li>
+
+            <li>
                 <a href="/stories">My Ghost Stories</a>
             </li>
 

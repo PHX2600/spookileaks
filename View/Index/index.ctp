@@ -15,7 +15,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, veniam, iure
             quidem eveniet officiis hic harum fugit saepe vero temporibus!</p>
 
-            <a href="#" class="btn btn-success btn-block btn-lg">Join the Team!</a>
+            <a href="/login" class="btn btn-success btn-block btn-lg">Join the Team!</a>
 
         </div>
 

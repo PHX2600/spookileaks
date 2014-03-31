@@ -18,6 +18,9 @@
     // Index
     Router::connect('/', array('controller' => 'index', 'action' => 'index'));
 
+    // Miscellaneous
+    Router::connect('/about', array('controller' => 'index', 'action' => 'about'));
+
     // Users
     Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
     Router::connect('/login', array('controller' => 'users', 'action' => 'login'));

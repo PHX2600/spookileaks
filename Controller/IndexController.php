@@ -8,7 +8,7 @@
             parent::beforeFilter();
 
             // Set public views
-            $this->Auth->allow('index');
+            $this->Auth->allow('index', 'about');
 
         }
 
@@ -17,6 +17,14 @@
 
             // Set the page title
             $this->set('page_title', 'Hello (ghost) world!');
+
+        }
+
+
+        public function about() {
+
+            // Set the page title
+            $this->set('page_title', 'About the Mystery Team');
 
         }
 
