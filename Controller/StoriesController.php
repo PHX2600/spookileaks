@@ -17,7 +17,7 @@
                 // print_r($this->request->data); die(); // Debugging
 
                 // Get the file data
-                $file = $this->request->data['Story']['file'];
+                $file = $this->request->data['Story']['file_upload'];
 
                 if (!$file['error']) {
 

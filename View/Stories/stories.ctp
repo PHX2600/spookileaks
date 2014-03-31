@@ -9,7 +9,7 @@
                 <h3 class="story-title">
                     <?php echo $story['Story']['title']; ?><br>
                     <small>
-                        By, <?php echo $story['User']['username']; ?>
+                        By <?php echo $story['User']['username']; ?>
                         &bull; <?php echo $this->Time->format('M jS, Y - g:i A', $story['Story']['created']); ?>
                     </small>
                 </h3>
@@ -53,7 +53,7 @@
 
                         <h5>Story Image</h5>
 
-                        <?php echo $this->Form->file('Story.file'); ?>
+                        <?php echo $this->Form->file('Story.file_upload'); ?>
 
                     </div>
 
