@@ -1,98 +1,99 @@
 ghost/
-├── Config
-│   ├── Schema
-│   │   ├── db_acl.php
-│   │   ├── db_acl.sql
-│   │   ├── i18n.php
-│   │   ├── i18n.sql
-│   │   ├── schema.php
-│   │   ├── sessions.php
-│   │   └── sessions.sql
-│   ├── acl.ini.php
-│   ├── acl.php
-│   ├── bootstrap.php
-│   ├── core.php
-│   ├── core.php.default
-│   ├── database.php
-│   ├── database.php.default
-│   ├── email.php.default
-│   └── routes.php
-├── Console
-│   ├── Command
-│   │   ├── Task
-│   │   └── AppShell.php
-│   ├── Templates
-│   ├── cake
-│   ├── cake.bat
-│   └── cake.php
-├── Controller
-│   ├── Component
-│   │   └── Auth
-│   │       └── CustomPasswordHasher.php
-│   ├── AppController.php
-│   ├── IndexController.php
-│   ├── StoriesController.php
-│   └── UsersController.php
-├── Model
-│   ├── Behavior
-│   ├── Datasource
-│   ├── AppModel.php
-│   ├── Story.php
-│   └── User.php
-├── tmp
-│   ├── cache
-│   │   ├── models
-│   │   ├── persistent
-│   │   └── views
-│   ├── logs
-│   │   └── error.log
-│   ├── sessions
-│   └── tests
-├── uploads
-│   ├── [ User uploads ]
-│   └── index.html
-├── Vendor
-│   ├── [ Autoloaded via Composer ]
-├── View
-│   ├── Elements
-│   │   ├── flash.ctp
-│   │   └── site_header.ctp
-│   ├── Errors
-│   │   ├── error400.ctp
-│   │   └── error500.ctp
-│   ├── Helper
-│   │   └── AppHelper.php
-│   ├── Index
-│   │   ├── about.ctp
-│   │   └── index.ctp
-│   ├── Layouts
-│   │   ├── default.ctp
-│   │   ├── error.ctp
-│   │   └── flash.ctp
-│   ├── Scaffolds
-│   ├── Stories
-│   │   └── stories.ctp
-│   └── Users
-│       ├── login.ctp
-│       └── register.ctp
-├── webroot
-│   ├── css
-│   │   ├── bootstrap.min.css
-│   │   └── style.css
-│   ├── fonts
-│   │   ├── glyphicons-halflings-regular.eot
-│   │   ├── glyphicons-halflings-regular.svg
-│   │   ├── glyphicons-halflings-regular.ttf
-│   │   └── glyphicons-halflings-regular.woff
-│   ├── img
-│   │   └── mystery_machine.jpg
-│   ├── js
-│   │   └── bootstrap.min.js
-│   ├── secret_docs
-│   │   └── file-tree.txt
-│   ├── index.php
-│   └── robots.txt
-├── composer.json
-├── composer.lock
-├── composer.phar
-└── index.php
+|-- Config
+|   |-- Schema
+|   |   |-- db_acl.php
+|   |   |-- db_acl.sql
+|   |   |-- i18n.php
+|   |   |-- i18n.sql
+|   |   |-- schema.php
+|   |   |-- sessions.php
+|   |   `-- sessions.sql
+|   |-- acl.ini.php
+|   |-- acl.php
+|   |-- bootstrap.php
+|   |-- core.php
+|   |-- core.php.default
+|   |-- database.php
+|   |-- database.php.default
+|   |-- email.php.default
+|   `-- routes.php
+|-- Console
+|   |-- Command
+|   |   |-- Task
+|   |   `-- AppShell.php
+|   |-- Templates
+|   |-- cake
+|   |-- cake.bat
+|   `-- cake.php
+|-- Controller
+|   |-- Component
+|   |   `-- Auth
+|   |       `-- CustomPasswordHasher.php
+|   |-- AppController.php
+|   |-- IndexController.php
+|   |-- StoriesController.php
+|   `-- UsersController.php
+|-- Model
+|   |-- Behavior
+|   |-- Datasource
+|   |-- AppModel.php
+|   |-- Story.php
+|   `-- User.php
+|-- tmp
+|   |-- cache
+|   |   |-- models
+|   |   |-- persistent
+|   |   `-- views
+|   |-- logs
+|   |   `-- error.log
+|   |-- sessions
+|   `-- tests
+|-- uploads
+|   |-- [ User uploads ]
+|   `-- index.html
+|-- Vendor
+|   `-- [ Autoloaded by Composer ]
+|-- View
+|   |-- Elements
+|   |   |-- flash.ctp
+|   |   `-- site_header.ctp
+|   |-- Errors
+|   |   |-- error400.ctp
+|   |   `-- error500.ctp
+|   |-- Helper
+|   |   `-- AppHelper.php
+|   |-- Index
+|   |   |-- about.ctp
+|   |   `-- index.ctp
+|   |-- Layouts
+|   |   |-- default.ctp
+|   |   |-- error.ctp
+|   |   `-- flash.ctp
+|   |-- Scaffolds
+|   |-- Stories
+|   |   `-- stories.ctp
+|   `-- Users
+|       |-- login.ctp
+|       `-- register.ctp
+|-- webroot
+|   |-- css
+|   |   |-- bootstrap.min.css
+|   |   `-- style.css
+|   |-- fonts
+|   |   |-- glyphicons-halflings-regular.eot
+|   |   |-- glyphicons-halflings-regular.svg
+|   |   |-- glyphicons-halflings-regular.ttf
+|   |   `-- glyphicons-halflings-regular.woff
+|   |-- img
+|   |   `-- mystery_machine.jpg
+|   |-- js
+|   |   |-- bootstrap.min.js
+|   |   `-- ghost.js
+|   |-- secret_docs
+|   |   `-- file-tree.txt
+|   |-- index.php
+|   `-- robots.txt
+|-- composer.json
+|-- composer.lock
+|-- composer.phar
+`-- index.php
