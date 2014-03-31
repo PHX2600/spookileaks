@@ -1,5 +1,7 @@
 <?php
+
 App::uses('AppModel', 'Model');
+
 /**
  * Story Model
  *
@@ -41,4 +43,23 @@ class Story extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function beforeSave($options = array()) {
+
+		if (isset($this->data[$this->alias]['title'])) {
+
+			$this->data[$this->alias]['title'] = htmlentities(trim($this->data[$this->alias]['title']));
+
+		}
+
+		if (isset($this->data[$this->alias]['text'])) {
+
+			$this->data[$this->alias]['text'] = htmlentities(trim($this->data[$this->alias]['text']));
+
+		}
+
+		return true;
+
+	}
+
 }
