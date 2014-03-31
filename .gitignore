@@ -6,3 +6,6 @@ tmp/*
 
 Plugin/*
 Vendor/*
+
+uploads/*
+!uploads/index.html
