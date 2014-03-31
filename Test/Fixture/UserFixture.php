@@ -35,8 +35,8 @@ class UserFixture extends CakeTestFixture {
 			'username' => 'Lorem ipsum dolor sit amet',
 			'password' => 'Lorem ipsum dolor sit amet',
 			'role' => 'Lorem ipsum dolor sit amet',
-			'created' => '2014-03-29 22:23:26',
-			'modified' => '2014-03-29 22:23:26'
+			'created' => '2014-03-30 17:50:17',
+			'modified' => '2014-03-30 17:50:17'
 		),
 	);
 
