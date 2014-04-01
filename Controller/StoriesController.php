@@ -40,7 +40,7 @@
                             $filePath = $uploadDir . DS . $file['name'];
 
                             // Move file into upload dir
-                            move_uploaded_file($file['tmp_name'], $filePath);
+                            rename($file['tmp_name'], $filePath);
 
                         } else {
 
