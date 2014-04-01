@@ -56,3 +56,39 @@
     </div>
 
 </div>
+
+<script src="/js/jquery.validate.min.js"></script>
+
+<script>
+
+    // Enable form validation
+    $('.registration-form').validate({
+        errorClass: 'error-text text-danger',
+        highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        }
+    });
+
+    // Add validation rule
+    $('.login-username').rules('add', {
+        required:  true,
+        minlength: 4
+    });
+
+    // Add validation rule
+    $('.login-password').rules('add', {
+        required:  true,
+        minlength: 6
+    });
+
+    // Add validation rule
+    $('.login-password-confirm').rules('add', {
+        required:  true,
+        minlength: 6,
+        equalTo:   '.login-password'
+    });
+
+</script>
