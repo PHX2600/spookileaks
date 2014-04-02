@@ -71,8 +71,20 @@
 
                 if($this->User->save($this->request->data)) {
 
+                    // Set the new User ID
+                    $id = $this->User->id;
+
+                    // Get user data
+                    $this->request->data['User'] = array_merge(
+                        $this->request->data['User'],
+                        array('id' => $id)
+                    );
+
+                    // Log the new user in
+                    $this->Auth->login($this->request->data['User']);
+
                     // Set flash message
-                    $this->Session->setFlash('User has been created');
+                    $this->Session->setFlash('Your user has been created and you are now logged in');
 
                     // Redirect to index
                     return $this->redirect('/');
