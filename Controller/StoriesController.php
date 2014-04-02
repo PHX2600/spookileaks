@@ -31,7 +31,7 @@
                     if (in_array($extension, $allowedExtensions)) {
 
                         // Set course media directory path
-                        $uploadDir = APP . 'uploads';
+                        $uploadDir = APP . WEBROOT_DIR . DS . 'uploads';
 
                         // Check if course media dir is writeable
                         if (is_writable($uploadDir)) {
@@ -40,7 +40,7 @@
                             $filePath = $uploadDir . DS . $file['name'];
 
                             // Move file into upload dir
-                            rename($file['tmp_name'], $filePath);
+                            move_uploaded_file($file['tmp_name'], $filePath);
 
                         } else {
 
@@ -115,7 +115,7 @@
             $fileName = str_replace('../', '', $this->request->query['file']);
 
             // Get file path
-            $file = realpath(APP . 'uploads' . DS . $fileName);
+            $file = realpath(APP . WEBROOT_DIR . DS . 'uploads' . DS . $fileName);
 
             // Send the file
             if (file_exists($file)) {
