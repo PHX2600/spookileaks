@@ -28,8 +28,10 @@
 
     // Stories
     Router::connect('/stories', array('controller' => 'stories', 'action' => 'stories'));
+    Router::connect('/stories/manage', array('controller' => 'stories', 'action' => 'manage'));
     Router::connect('/stories/hash', array('controller' => 'stories', 'action' => 'hash'));
     Router::connect('/stories/media', array('controller' => 'stories', 'action' => 'media'));
+    Router::connect('/stories/:story_id', array('controller' => 'stories', 'action' => 'story'));
 
 
     /**

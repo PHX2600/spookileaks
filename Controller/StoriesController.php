@@ -7,10 +7,57 @@
             // Call parent beforeFilter
             parent::beforeFilter();
 
+            // Set public views
+            $this->Auth->allow('stories', 'story');
+
         }
 
 
         public function stories() {
+
+            // Set the page title
+            $this->set('page_title', 'Ghost Stories');
+
+            // Find all stories
+            $stories = $this->Story->find('all', array(
+                'conditions' => array(
+                    'Story.public' => true
+                ),
+                'order' => 'Story.modified DESC'
+            ));
+
+            // print_r($stories); die(); // Debugging
+
+            // Pass stories data to view
+            $this->set('stories', $stories);
+
+        }
+
+
+        public function story() {
+
+
+            // Find all stories
+            $story = $this->Story->find('first', array(
+                'conditions' => array(
+                    'Story.id'     => $this->params['story_id'],
+                    'Story.public' => true
+                ),
+                'order' => 'Story.modified DESC'
+            ));
+
+            // print_r($story); die(); // Debugging
+
+            // Set the page title
+            $this->set('page_title', $story['Story']['title']);
+
+            // Pass stories data to view
+            $this->set('story', $story);
+
+        }
+
+
+        public function manage() {
 
             if ($this->request->is('post')) {
 
@@ -47,7 +94,7 @@
                     $this->Session->setFlash('Jinkies! There was an error posting your story.');
 
                     // Redirect to index
-                    return $this->redirect('/stories');
+                    return $this->redirect('/stories/manage');
 
                 }
 
@@ -75,12 +122,12 @@
                 }
 
                 // Redirect to index
-                return $this->redirect('/stories');
+                return $this->redirect('/stories/manage');
 
             }
 
             // Set the page title
-            $this->set('page_title', 'My Ghost Stories');
+            $this->set('page_title', 'Your Ghost Stories');
 
             // Find all stories
             $stories = $this->Story->find('all', array(
@@ -111,7 +158,7 @@
                 $fileName = trim($this->request->data['fileName']);
 
                 // Set array of allowed file extensions
-                $allowedExtensions = array('bmp', 'gif', 'jpg', 'jpeg');
+                $allowedExtensions = array('png', 'gif', 'jpg', 'jpeg', 'bmp');
 
                 // Get file extension from source image
                 $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));

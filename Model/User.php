@@ -73,6 +73,12 @@ class User extends AppModel {
 
 	public function beforeSave($options = array()) {
 
+		if (isset($this->data[$this->alias]['username'])) {
+
+			$this->data[$this->alias]['username'] = htmlentities(trim($this->data[$this->alias]['username']));
+
+		}
+
 		if (isset($this->data[$this->alias]['password'])) {
 
 			$passwordHasher = new CustomPasswordHasher();

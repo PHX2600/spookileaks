@@ -16,11 +16,11 @@
 
             <?php if ($this->Session->read('Auth.User.id')): ?>
 
-                <a href="/stories" class="btn btn-primary btn-block btn-lg">Add your stroies!</a>
+                <a href="/stories" class="btn btn-success btn-block btn-lg">Add your stroies!</a>
 
             <?php else: ?>
 
-                <a href="/register" class="btn btn-success btn-block btn-lg">Sign up now!</a>
+                <a href="/register" class="btn btn-primary btn-block btn-lg">Sign up now!</a>
 
             <?php endif; ?>
 

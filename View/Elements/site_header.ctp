@@ -9,13 +9,9 @@
                 <a href="/about">About Us</a>
             </li>
 
-            <?php if ($this->Session->read('Auth.User.id')): ?>
-
-                <li>
-                    <a href="/stories">My Ghost Stories</a>
-                </li>
-
-            <?php endif; ?>
+            <li>
+                <a href="/stories">Ghost Stories</a>
+            </li>
 
         </ul>
 

@@ -1,4 +1,13 @@
 /* -------------------------------------------------------------------------- */
+/* -----| GENERAL |---------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+.container {
+    position: relative;
+}
+
+
+/* -------------------------------------------------------------------------- */
 /* -----| SITE HEADER |------------------------------------------------------ */
 /* -------------------------------------------------------------------------- */
 
@@ -14,18 +23,60 @@
 /* -----| STORIES |---------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-.story-wrapper {
-    border-bottom: 1px dotted #DDD;
-    margin-bottom: 60px;
-    padding: 0 0 15px;
+.public-story-list {
+    position: relative;
 }
 
-.story-title {
-    margin: 0 0 15px;
+.manage-stories-btn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
 }
 
 .story-img {
     margin: 0 0 15px;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* -----| MANAGE STORIES |--------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+.story-wrapper .panel-heading {
+    position: relative;
+}
+
+.story-wrapper .panel-heading h4 {
+    margin-right: 64px;
+}
+
+.story-public {
+    border-radius: 2px;
+    font-size: .85em;
+    padding: 3px 6px;
+    position: absolute;
+    right: 15px;
+    text-transform: uppercase;
+    top: 28px;
+}
+
+label.checkbox {
+    background-color: #EEE;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 0;
+    padding: 6px 8px !important;
+}
+
+label.checkbox:hover {
+    background-color: #DDD;
+}
+
+label.checkbox input[type="checkbox"] {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 3px;
 }
 
 
