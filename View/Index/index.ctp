@@ -16,7 +16,7 @@
 
             <?php if ($this->Session->read('Auth.User.id')): ?>
 
-                <a href="/stories" class="btn btn-success btn-block btn-lg">Add your stroies!</a>
+                <a href="/stories/manage" class="btn btn-success btn-block btn-lg">Add your stroies!</a>
 
             <?php else: ?>
 
