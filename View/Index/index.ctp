@@ -12,7 +12,7 @@
 
             <h2>Welcome to SpookiLeaks</h2>
 
-            <p>We help you get your ghost stories out there quickly and securly.</p>
+            <p>We help you get your ghost stories out there quickly and securely.</p>
 
             <?php if ($this->Session->read('Auth.User.id')): ?>
 
