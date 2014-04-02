@@ -30,8 +30,8 @@ SpookiLeaks/
 |   |   `-- Auth
 |   |       `-- CustomPasswordHasher.php
 |   |-- AppController.php
+|   |-- ImagesController.php
 |   |-- IndexController.php
-|   |-- StoriesController.php
 |   `-- UsersController.php
 |-- Docs
 |   `-- flag.txt
@@ -39,7 +39,7 @@ SpookiLeaks/
 |   |-- Behavior
 |   |-- Datasource
 |   |-- AppModel.php
-|   |-- Story.php
+|   |-- Image.php
 |   `-- User.php
 |-- tmp
 |   |-- cache
@@ -62,6 +62,10 @@ SpookiLeaks/
 |   |   `-- error500.ctp
 |   |-- Helper
 |   |   `-- AppHelper.php
+|   |-- Images
+|   |   |-- image.ctp
+|   |   |-- images.ctp
+|   |   `-- manage.ctp
 |   |-- Index
 |   |   |-- about.ctp
 |   |   `-- index.ctp
@@ -70,8 +74,6 @@ SpookiLeaks/
 |   |   |-- error.ctp
 |   |   `-- flash.ctp
 |   |-- Scaffolds
-|   |-- Stories
-|   |   `-- stories.ctp
 |   `-- Users
 |       |-- login.ctp
 |       `-- register.ctp
@@ -90,8 +92,8 @@ SpookiLeaks/
 |   |-- js
 |   |   |-- bootstrap.min.js
 |   |   |-- ghost.js
-|   |   |-- jquery.validate.min.js
-|   |   `-- stories.js
+|   |   |-- images.js
+|   |   `-- jquery.validate.min.js
 |   |-- secret_docs
 |   |   `-- file-tree.txt
 |   |-- uploads
