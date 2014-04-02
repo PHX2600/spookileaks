@@ -153,31 +153,40 @@
             // Send the file
             if (file_exists($file)) {
 
-                // Get file mime type
-                $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                $contentType = finfo_file($finfo, $file);
+                if(is_readable($file)) {
 
-                // Set some header information
-                header('Content-Description: File Transfer');
-                header('Content-Type: ' . $contentType);
-                header('Content-Transfer-Encoding: binary');
-                header('Expires: 0');
-                header('Cache-Control: must-revalidate');
-                header('Pragma: public');
-                header('Content-Length: ' . filesize($file));
-                header('Content-Disposition: inline; filename="' . $file . '"');
+                    // Get file mime type
+                    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                    $contentType = finfo_file($finfo, $file);
 
-                // Discard contents of the output buffer
-                ob_clean();
+                    // Set some header information
+                    header('Content-Description: File Transfer');
+                    header('Content-Type: ' . $contentType);
+                    header('Content-Transfer-Encoding: binary');
+                    header('Expires: 0');
+                    header('Cache-Control: must-revalidate');
+                    header('Pragma: public');
+                    header('Content-Length: ' . filesize($file));
+                    header('Content-Disposition: inline; filename="' . $file . '"');
 
-                // Flush write buffers
-                flush();
+                    // Discard contents of the output buffer
+                    ob_clean();
 
-                // Read file to the output buffer
-                readfile($file);
+                    // Flush write buffers
+                    flush();
 
-                // Stop execution
-                exit;
+                    // Read file to the output buffer
+                    readfile($file);
+
+                    // Stop execution
+                    exit;
+
+                } else {
+
+                    // Return 503 failure
+                    throw new ForbiddenException('Permission denied for "' . $fileName . '"');
+
+                }
 
             }
 
