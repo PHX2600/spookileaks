@@ -1,4 +1,4 @@
-ghost/
+SpookiLeaks/
 |-- Config
 |   |-- Schema
 |   |   |-- db_acl.php
@@ -33,6 +33,8 @@ ghost/
 |   |-- IndexController.php
 |   |-- StoriesController.php
 |   `-- UsersController.php
+|-- Docs
+|   `-- flag.txt
 |-- Model
 |   |-- Behavior
 |   |-- Datasource
@@ -45,12 +47,10 @@ ghost/
 |   |   |-- persistent
 |   |   `-- views
 |   |-- logs
+|   |   |-- debug.log
 |   |   `-- error.log
 |   |-- sessions
 |   `-- tests
-|-- uploads
-|   |-- [ User uploads ]
-|   `-- index.html
 |-- Vendor
 |   `-- [ Autoloaded by Composer ]
 |-- View
@@ -85,12 +85,18 @@ ghost/
 |   |   |-- glyphicons-halflings-regular.ttf
 |   |   `-- glyphicons-halflings-regular.woff
 |   |-- img
-|   |   `-- mystery_machine.jpg
+|   |   |-- founder.jpg
+|   |   `-- ghost.jpg
 |   |-- js
 |   |   |-- bootstrap.min.js
-|   |   `-- ghost.js
+|   |   |-- ghost.js
+|   |   |-- jquery.validate.min.js
+|   |   `-- stories.js
 |   |-- secret_docs
 |   |   `-- file-tree.txt
+|   |-- uploads
+|   |   |-- [ User uploads ]
+|   |   |-- index.html
 |   |-- index.php
 |   `-- robots.txt
 |-- composer.json
