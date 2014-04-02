@@ -56,8 +56,8 @@ class User extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Story' => array(
-			'className' => 'Story',
+		'Image' => array(
+			'className' => 'Image',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

@@ -10,7 +10,7 @@
             </li>
 
             <li>
-                <a href="/stories">Ghost Stories</a>
+                <a href="/images">Spooky Images</a>
             </li>
 
         </ul>

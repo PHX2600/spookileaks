@@ -7,7 +7,7 @@ App::uses('AppModel', 'Model');
  *
  * @property User $User
  */
-class Story extends AppModel {
+class Image extends AppModel {
 
 /**
  * Validation rules
@@ -54,7 +54,7 @@ class Story extends AppModel {
 
 		if (isset($this->data[$this->alias]['text'])) {
 
-			$this->data[$this->alias]['text'] = htmlentities(trim($this->data[$this->alias]['text']));
+			$this->data[$this->alias]['text'] = htmlentities(trim($this->data[$this->alias]['comment']));
 
 		}
 

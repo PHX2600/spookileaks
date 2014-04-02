@@ -1,41 +1,43 @@
-<script type="text/javascript" src="/js/stories.js"></script>
+<script type="text/javascript" src="/js/images.js"></script>
 
 <div class="row">
 
     <div class="col-md-7">
 
-        <?php foreach ($stories as $story): ?>
+        <?php foreach ($images as $image): ?>
 
 
-            <div class="story-wrapper panel panel-default">
+            <div class="image-wrapper panel panel-default">
 
                 <div class="panel-heading">
 
                     <h4>
-                        <?php echo $story['Story']['title']; ?><br>
+                        <?php echo $image['Image']['title']; ?><br>
                         <small>
-                            By <?php echo $story['User']['username']; ?>
-                            &bull; <?php echo $this->Time->format('M jS, Y - g:i A', $story['Story']['created']); ?>
+                            By <?php echo $image['User']['username']; ?>
+                            &bull; <?php echo $this->Time->format('M jS, Y - g:i A', $image['Image']['created']); ?>
                         </small>
                     </h4>
 
-                    <?php if ($story['Story']['public']): ?>
-                        <div class="story-public bg-info text-info">
+                    <?php if ($image['Image']['public']): ?>
+                        <div class="image-public bg-info text-info">
                             Public
                         </div>
                     <?php endif; ?>
 
                 </div>
 
-                <img src="/stories/media?file=<?php echo $story['Story']['file']; ?>" class="img-responsive">
+                <img src="/images/media?file=<?php echo $image['Image']['file']; ?>" class="img-responsive">
 
-                <div class="panel-body">
+                <?php if (!empty($image['Image']['comment'])): ?>
+                    <div class="panel-body">
 
-                    <div class="story-text">
-                        <?php echo nl2br($story['Story']['text']); ?>
+                        <div class="image-comment">
+                            <?php echo nl2br($image['Image']['comment']); ?>
+                        </div>
+
                     </div>
-
-                </div>
+                <?php endif; ?>
 
             </div>
 
@@ -45,25 +47,25 @@
 
     <div class="col-md-5">
 
-        <?php echo $this->Form->create('Story', array(
-            'class'   => 'submit-story-form',
+        <?php echo $this->Form->create('Image', array(
+            'class'   => 'submit-image-form',
             'enctype' => 'multipart/form-data'
         )); ?>
 
-            <div class="new-story panel panel-default">
+            <div class="new-image panel panel-default">
 
                 <div class="panel-heading">
-                    <h3 class="panel-title">Add Your Story</h3>
+                    <h3 class="panel-title">Add Your Image</h3>
                 </div>
 
                 <div class="panel-body">
 
                     <div class="form-group">
 
-                        <h5>Story Title</h5>
+                        <h5>Image Title</h5>
 
                         <?php echo $this->Form->text('title', array(
-                            'class'       => 'story-title-input form-control input-lg',
+                            'class'       => 'image-title-input form-control input-lg',
                             'placeholder' => 'Title',
                         )); ?>
 
@@ -71,14 +73,14 @@
 
                     <div class="form-group">
 
-                        <h5>Story Image</h5>
+                        <h5>Image Image</h5>
 
-                        <?php echo $this->Form->file('Story.file_upload', array(
-                            'class' => 'story-file-upload-input'
+                        <?php echo $this->Form->file('Image.file_upload', array(
+                            'class' => 'image-file-upload-input'
                         )); ?>
 
                         <?php echo $this->Form->hidden('file_hash', array(
-                            'class' => 'story-file-hash-input'
+                            'class' => 'image-file-hash-input'
                         )); ?>
 
                         <small class="help-block">
@@ -89,11 +91,11 @@
 
                     <div class="form-group">
 
-                        <h5>Story Text</h5>
+                        <h5>Image Text</h5>
 
-                        <?php echo $this->Form->textarea('text', array(
-                            'class'       => 'story-text-input form-control',
-                            'placeholder' => 'Story Text',
+                        <?php echo $this->Form->textarea('comment', array(
+                            'class'       => 'image-text-input form-control',
+                            'placeholder' => 'Image Text',
                             'rows'        => 6
                         )); ?>
 
@@ -103,7 +105,7 @@
 
                     <label class="checkbox checkbox-inline pull-left">
                         <?php echo $this->Form->checkbox('public', array(
-                            'class'       => 'story-public-input',
+                            'class'       => 'image-public-input',
                             'hiddenField' => false
                         )); ?>
                         Public

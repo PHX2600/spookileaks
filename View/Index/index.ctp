@@ -12,11 +12,11 @@
 
             <h2>Welcome to SpookiLeaks</h2>
 
-            <p>We help you tell your ghost stories to the world quickly and securely.</p>
+            <p>We help you share your spooky sightings with the world quickly and securely.</p>
 
             <?php if ($this->Session->read('Auth.User.id')): ?>
 
-                <a href="/stories/manage" class="btn btn-success btn-block btn-lg">Add your stroies!</a>
+                <a href="/images/manage" class="btn btn-success btn-block btn-lg">Share your images!</a>
 
             <?php else: ?>
 

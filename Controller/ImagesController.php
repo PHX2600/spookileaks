@@ -1,6 +1,6 @@
 <?php
 
-    class StoriesController extends AppController {
+    class ImagesController extends AppController {
 
         public function beforeFilter() {
 
@@ -8,51 +8,51 @@
             parent::beforeFilter();
 
             // Set public views
-            $this->Auth->allow('stories', 'story');
+            $this->Auth->allow('images', 'image');
 
         }
 
 
-        public function stories() {
+        public function images() {
 
             // Set the page title
-            $this->set('page_title', 'Ghost Stories');
+            $this->set('page_title', 'Spooky Images');
 
-            // Find all stories
-            $stories = $this->Story->find('all', array(
+            // Find all images
+            $images = $this->Image->find('all', array(
                 'conditions' => array(
-                    'Story.public' => true
+                    'Image.public' => true
                 ),
-                'order' => 'Story.modified DESC'
+                'order' => 'Image.modified DESC'
             ));
 
-            // print_r($stories); die(); // Debugging
+            // print_r($images); die(); // Debugging
 
-            // Pass stories data to view
-            $this->set('stories', $stories);
+            // Pass images data to view
+            $this->set('images', $images);
 
         }
 
 
-        public function story() {
+        public function image() {
 
 
-            // Find all stories
-            $story = $this->Story->find('first', array(
+            // Find all images
+            $image = $this->Image->find('first', array(
                 'conditions' => array(
-                    'Story.id'     => $this->params['story_id'],
-                    'Story.public' => true
+                    'Image.id'     => $this->params['image_id'],
+                    'Image.public' => true
                 ),
-                'order' => 'Story.modified DESC'
+                'order' => 'Image.modified DESC'
             ));
 
-            // print_r($story); die(); // Debugging
+            // print_r($image); die(); // Debugging
 
             // Set the page title
-            $this->set('page_title', $story['Story']['title']);
+            $this->set('page_title', $image['Image']['title']);
 
-            // Pass stories data to view
-            $this->set('story', $story);
+            // Pass images data to view
+            $this->set('image', $image);
 
         }
 
@@ -64,8 +64,8 @@
                 // print_r($this->request->data); die(); // Debugging
 
                 // Get the file data
-                $file = $this->request->data['Story']['file_upload'];
-                $hash = $this->request->data['Story']['file_hash'];
+                $file = $this->request->data['Image']['file_upload'];
+                $hash = $this->request->data['Image']['file_hash'];
 
                 if (!$file['error'] && $hash === $this->hashFile($file['name'])) {
 
@@ -91,56 +91,56 @@
                 } else {
 
                     // Set flash message
-                    $this->Session->setFlash('Jinkies! There was an error posting your story.');
+                    $this->Session->setFlash('Jinkies! There was an error posting your image.');
 
                     // Redirect to index
-                    return $this->redirect('/stories/manage');
+                    return $this->redirect('/images/manage');
 
                 }
 
                 // Set file path and user id
-                $this->Story->set(array(
+                $this->Image->set(array(
                     'user_id' => $this->Auth->user('id'),
                     'file'    => $file['name']
                 ));
 
-                // print_r($this->Story); die(); // Debugging
+                // print_r($this->Image); die(); // Debugging
 
-                // Save the story data
-                $data = $this->Story->save($this->request->data);
+                // Save the image data
+                $data = $this->Image->save($this->request->data);
 
                 if (!empty($data)) {
 
                     // Set flash message
-                    $this->Session->setFlash('Your story has been posted');
+                    $this->Session->setFlash('Your image has been posted');
 
                 } else {
 
                     // Set flash message
-                    $this->Session->setFlash('Jinkies! There was an error posting your story.');
+                    $this->Session->setFlash('Jinkies! There was an error posting your image.');
 
                 }
 
                 // Redirect to index
-                return $this->redirect('/stories/manage');
+                return $this->redirect('/images/manage');
 
             }
 
             // Set the page title
-            $this->set('page_title', 'Your Ghost Stories');
+            $this->set('page_title', 'Your Spooky Images');
 
-            // Find all stories
-            $stories = $this->Story->find('all', array(
+            // Find all images
+            $images = $this->Image->find('all', array(
                 'conditions' => array(
-                    'Story.user_id' => $this->Auth->user('id')
+                    'Image.user_id' => $this->Auth->user('id')
                 ),
-                'order' => 'Story.modified DESC'
+                'order' => 'Image.modified DESC'
             ));
 
-            // print_r($stories); die(); // Debugging
+            // print_r($images); die(); // Debugging
 
-            // Pass stories data to view
-            $this->set('stories', $stories);
+            // Pass images data to view
+            $this->set('images', $images);
 
         }
 

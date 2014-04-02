@@ -26,12 +26,12 @@
     Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
     Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
-    // Stories
-    Router::connect('/stories', array('controller' => 'stories', 'action' => 'stories'));
-    Router::connect('/stories/manage', array('controller' => 'stories', 'action' => 'manage'));
-    Router::connect('/stories/hash', array('controller' => 'stories', 'action' => 'hash'));
-    Router::connect('/stories/media', array('controller' => 'stories', 'action' => 'media'));
-    Router::connect('/stories/:story_id', array('controller' => 'stories', 'action' => 'story'));
+    // Sightings
+    Router::connect('/images', array('controller' => 'images', 'action' => 'images'));
+    Router::connect('/images/manage', array('controller' => 'images', 'action' => 'manage'));
+    Router::connect('/images/hash', array('controller' => 'images', 'action' => 'hash'));
+    Router::connect('/images/media', array('controller' => 'images', 'action' => 'media'));
+    Router::connect('/images/:image_id', array('controller' => 'images', 'action' => 'image'));
 
 
     /**

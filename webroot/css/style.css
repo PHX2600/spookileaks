@@ -20,37 +20,41 @@
 
 
 /* -------------------------------------------------------------------------- */
-/* -----| STORIES |---------------------------------------------------------- */
+/* -----| IMAGES |----------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-.public-story-list {
+.public-image-list {
     position: relative;
 }
 
-.manage-stories-btn {
+.manage-images-btn {
     position: absolute;
     top: 20px;
     right: 15px;
 }
 
-.story-img {
+.image-img {
     margin: 0 0 15px;
 }
 
+.panel {
+    overflow: hidden;
+}
+
 
 /* -------------------------------------------------------------------------- */
-/* -----| MANAGE STORIES |--------------------------------------------------- */
+/* -----| MANAGE IMAGES |---------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-.story-wrapper .panel-heading {
+.image-wrapper .panel-heading {
     position: relative;
 }
 
-.story-wrapper .panel-heading h4 {
+.image-wrapper .panel-heading h4 {
     margin-right: 64px;
 }
 
-.story-public {
+.image-public {
     border-radius: 2px;
     font-size: .85em;
     padding: 3px 6px;
