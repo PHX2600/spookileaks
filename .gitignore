@@ -6,5 +6,5 @@
 Plugin/*
 Vendor/*
 
-uploads/*
-!uploads/index.html
+webroot/uploads/*
+!webroot/uploads/index.html

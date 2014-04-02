@@ -18,46 +18,36 @@
 
                 // Get the file data
                 $file = $this->request->data['Story']['file_upload'];
+                $hash = $this->request->data['Story']['file_hash'];
 
-                if (!$file['error']) {
+                if (!$file['error'] && $hash === $this->hashFile($file['name'])) {
 
-                    // Set array of allowed file extensions
-                    $allowedExtensions = array('bmp', 'gif', 'jpg', 'jpeg');
+                    // Set course media directory path
+                    $uploadDir = APP . WEBROOT_DIR . DS . 'uploads';
 
-                    // Get file extension from source image
-                    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+                    // Check if course media dir is writeable
+                    if (is_writable($uploadDir)) {
 
-                    // Verify file is of an acceptable type
-                    if (in_array($extension, $allowedExtensions)) {
+                        // Set file path
+                        $filePath = $uploadDir . DS . $file['name'];
 
-                        // Set course media directory path
-                        $uploadDir = APP . WEBROOT_DIR . DS . 'uploads';
-
-                        // Check if course media dir is writeable
-                        if (is_writable($uploadDir)) {
-
-                            // Set file path
-                            $filePath = $uploadDir . DS . $file['name'];
-
-                            // Move file into upload dir
-                            move_uploaded_file($file['tmp_name'], $filePath);
-
-                        } else {
-
-                            // Throw 404 if not post request
-                            throw new InternalErrorException('Cannot write to uploads directory');
-
-                        }
+                        // Move file into upload dir
+                        move_uploaded_file($file['tmp_name'], $filePath);
 
                     } else {
 
-                        // Set flash message
-                        $this->Session->setFlash('Jinkies! There was an error posting your story.');
-
-                        // Redirect to index
-                        return $this->redirect('/stories');
+                        // Throw 404 if not post request
+                        throw new InternalErrorException('Cannot write to uploads directory');
 
                     }
+
+                } else {
+
+                    // Set flash message
+                    $this->Session->setFlash('Jinkies! There was an error posting your story.');
+
+                    // Redirect to index
+                    return $this->redirect('/stories');
 
                 }
 
@@ -107,6 +97,49 @@
 
         }
 
+
+        public function hash() {
+
+            // Don't require a view
+            $this->autoRender = false;
+
+            if ($this->request->is('post')) {
+
+                // print_r($this->request->data); die(); // Debugging
+
+                // Get the file name
+                $fileName = trim($this->request->data['fileName']);
+
+                // Set array of allowed file extensions
+                $allowedExtensions = array('bmp', 'gif', 'jpg', 'jpeg');
+
+                // Get file extension from source image
+                $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+                // Verify file is of an acceptable type
+                if (in_array($extension, $allowedExtensions)) {
+
+                    // Super duper, top secret hashing algorithm
+                    $data['file_hash'] = $this->hashFile($fileName);
+
+                } else {
+
+                    // Return false on failure
+                    $data['file_hash'] = false;
+
+                }
+
+                // Return the JSON data
+                return json_encode($data);
+
+            }
+
+            // Return 404 on failure
+            throw new NotFoundException('File Not Found');
+
+        }
+
+
         public function media() {
 
             // print_r($this->request->query); die(); // Debugging
@@ -149,7 +182,15 @@
             }
 
             // Return 404 on failure
-            throw new NotFoundException('File Not Found');
+            throw new NotFoundException('File "' . $fileName . '" Not Found');
+
+        }
+
+
+        private function hashFile($fileName) {
+
+            // Super duper, top secret hashing algorithm
+            return sha1($fileName . 'ErrrMahGerrds_Sup3rS3cr3t_P@ssw0rd');
 
         }
 

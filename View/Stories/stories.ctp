@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/stories.js"></script>
+
 <div class="row">
 
     <div class="col-md-7">
@@ -28,7 +30,10 @@
 
     <div class="col-md-5">
 
-        <?php echo $this->Form->create('Story', array('enctype' => 'multipart/form-data')); ?>
+        <?php echo $this->Form->create('Story', array(
+            'class'   => 'submit-story-form',
+            'enctype' => 'multipart/form-data'
+        )); ?>
 
             <div class="new-story panel panel-default">
 
@@ -43,7 +48,7 @@
                         <h5>Story Title</h5>
 
                         <?php echo $this->Form->text('title', array(
-                            'class'       => 'form-control input-lg',
+                            'class'       => 'story-title-input form-control input-lg',
                             'placeholder' => 'Title',
                         )); ?>
 
@@ -53,7 +58,13 @@
 
                         <h5>Story Image</h5>
 
-                        <?php echo $this->Form->file('Story.file_upload'); ?>
+                        <?php echo $this->Form->file('Story.file_upload', array(
+                            'class' => 'story-file-upload-input'
+                        )); ?>
+
+                        <?php echo $this->Form->hidden('file_hash', array(
+                            'class' => 'story-file-hash-input'
+                        )); ?>
 
                         <small class="help-block">
                             <strong>Allowed file types:</strong> bmp, gif, jpg, jpeg
@@ -66,7 +77,7 @@
                         <h5>Story Text</h5>
 
                         <?php echo $this->Form->textarea('text', array(
-                            'class'       => 'form-control',
+                            'class'       => 'story-text-input form-control',
                             'placeholder' => 'Story Text',
                             'rows'        => 6
                         )); ?>
