@@ -35,7 +35,7 @@ $(document).ready(function() {
     $('.image-file-upload-input:file').change(function(event) {
 
         // Initialize formData object
-        var fileName = $(this).val();
+        var fileName = $(this).val().split('\\').pop();
 
         $.post('/images/hash', { fileName: fileName }, function(data) {
 
