@@ -19,11 +19,19 @@
                         </small>
                     </h4>
 
-                    <?php if ($image['Image']['public']): ?>
-                        <div class="image-public bg-info text-info">
-                            Public
-                        </div>
-                    <?php endif; ?>
+                    <div class="image-meta">
+
+                        <?php if ($image['Image']['public']): ?>
+                            <div class="image-public bg-info text-info">
+                                Public
+                            </div>
+                        <?php endif; ?>
+
+                        <a href="/images/delete/<?php echo $image['Image']['id']; ?>" class="image-delete" title="Delete" rel="tooltip" data-container="body" data-placement="right">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+
+                    </div>
 
                 </div>
 

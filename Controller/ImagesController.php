@@ -93,7 +93,7 @@
                     // Set flash message
                     $this->Session->setFlash('Jinkies! There was an error posting your image.');
 
-                    // Redirect to index
+                    // Redirect to images management
                     return $this->redirect('/images/manage');
 
                 }
@@ -141,6 +141,42 @@
 
             // Pass images data to view
             $this->set('images', $images);
+
+        }
+
+
+        public function delete() {
+
+            // Don't require a view
+            $this->autoRender = false;
+
+            // Get the image ID
+            $imageID = $this->request->params['image_id'];
+
+            // Get image data
+            $image = $this->Image->find('first', array(
+                'conditions' => array(
+                    'Image.id' => $imageID
+                )
+            ));
+
+            // print_r($image); die(); // Debugging
+
+            if ($image['User']['id'] === $this->Auth->user('id')) {
+
+                // Delete the image
+                $this->Image->delete($imageID);
+
+                // Set flash message
+                $this->Session->setFlash('Your image has been deleted.');
+
+                // Redirect to images management
+                return $this->redirect('/images/manage');
+
+            }
+
+            // Return 404 on failure
+            throw new NotFoundException('File Not Found');
 
         }
 

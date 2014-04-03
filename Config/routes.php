@@ -29,6 +29,7 @@
     // Sightings
     Router::connect('/images', array('controller' => 'images', 'action' => 'images'));
     Router::connect('/images/manage', array('controller' => 'images', 'action' => 'manage'));
+    Router::connect('/images/delete/:image_id', array('controller' => 'images', 'action' => 'delete'));
     Router::connect('/images/hash', array('controller' => 'images', 'action' => 'hash'));
     Router::connect('/images/media', array('controller' => 'images', 'action' => 'media'));
     Router::connect('/images/:image_id', array('controller' => 'images', 'action' => 'image'));

@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+    // Enable Tooltips
+    $('[rel="tooltip"]').tooltip();
+
     $('.image-file-upload-input:file').change(function(event) {
 
         // Initialize formData object
