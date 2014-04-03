@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/images.js"></script>
 
 <div class="row">
@@ -70,7 +71,7 @@
 
                     <div class="form-group">
 
-                        <h5>Image Title</h5>
+                        <h5>Title</h5>
 
                         <?php echo $this->Form->text('title', array(
                             'class'       => 'image-title-input form-control input-lg',
@@ -81,7 +82,7 @@
 
                     <div class="form-group">
 
-                        <h5>Image Image</h5>
+                        <h5>Image</h5>
 
                         <?php echo $this->Form->file('Image.file_upload', array(
                             'class' => 'image-file-upload-input'
@@ -99,11 +100,11 @@
 
                     <div class="form-group">
 
-                        <h5>Image Text</h5>
+                        <h5>Comment</h5>
 
                         <?php echo $this->Form->textarea('comment', array(
-                            'class'       => 'image-text-input form-control',
-                            'placeholder' => 'Image Text',
+                            'class'       => 'image-comment-input form-control',
+                            'placeholder' => 'Comments',
                             'rows'        => 6
                         )); ?>
 
