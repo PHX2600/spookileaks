@@ -37,6 +37,10 @@
     margin: 0 0 15px;
 }
 
+.image-comment {
+    word-wrap: break-word;
+}
+
 .panel {
     overflow: hidden;
 }
