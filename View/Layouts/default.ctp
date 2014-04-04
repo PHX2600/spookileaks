@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     <!-- SCRIPTS -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
     <!-- META -->
